@@ -1,3 +1,50 @@
+-- CREACION DE TABLAS
+
+CREATE TABLE Cliente(
+  idcliente VARCHAR(10),
+  nombrecli VARCHAR(20),
+  cuidad VARCHAR(10)
+);
+
+CREATE TABLE Servicio(
+  idcliente VARCHAR(10),
+  idbanquero VARCHAR(10)
+);
+
+-- INSERTAR DATOS
+INSERT INTO Cliente (idcliente, nombrecli, cuidad) VALUES ('C1', 'Antony', 'Lima');
+INSERT INTO Cliente (idcliente, nombrecli, cuidad) VALUES ('C2', 'Juan', 'Trujillo');
+INSERT INTO Cliente (idcliente, nombrecli, cuidad) VALUES ('C3', 'Jose', 'Lima');
+INSERT INTO Cliente (idcliente, nombrecli, cuidad) VALUES ('C4', 'Hugo', 'Cusco');
+INSERT INTO Cliente (idcliente, nombrecli, cuidad) VALUES ('C5', 'Diego', 'Lima');
+
+
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C1','B1');
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C2','B2');
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C3','B3');
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C4','B4');
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C5','B2');
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C1','B3');
+insert INTO Servicio (idcliente, idbanquero) VALUES ('C3','B2');
+
+-- VER TABLAS
+SELECT *
+FROM cliente;
+
+SELECT * 
+FROM servicio;
+
+
+-- CONSULTAS DE LA SEMANA 6
+
+SELECT C.idcliente, C.nombrecli
+FROM Cliente AS C, Servicio AS S
+WHERE S.idbanquero = 'B3' AND S.idcliente = c.idcliente 
+
+
+-- hasta aqui
+
+
 CREATE TABLE Customers (
     customer_id SERIAL PRIMARY KEY,
     nombre VARCHAR(10),
